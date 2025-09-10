@@ -94,7 +94,7 @@ int main(void)
 
   //TODO EX2
 
-  int timer_state = 0; // 0: red on, yellow off \ 1: red off, yellow on
+  int timer_state = 0; // Bien dem thoi gian cho cac led
 
   while (1)
   {
