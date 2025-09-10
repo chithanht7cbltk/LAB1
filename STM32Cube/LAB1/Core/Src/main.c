@@ -92,6 +92,8 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
+  //TODO EX2
+
   int timer_state = 0; // 0: red on, yellow off \ 1: red off, yellow on
 
   while (1)
