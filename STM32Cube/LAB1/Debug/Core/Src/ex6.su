@@ -1,0 +1,4 @@
+ex6.c:14:6:init_ex6	4	static
+ex6.c:33:6:reset_state	8	static
+ex6.c:49:6:led_on	16	static
+ex6.c:55:6:ex6_run	8	static
