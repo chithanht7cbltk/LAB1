@@ -6,12 +6,14 @@
  */
 
 
-#include "ex6.h"
+#include "ex10.h"
 
+int counter = 0,
+	hour = 8,
+	minute = 28,
+	second = 8;
 
-int counter = 0;
-
-void init_ex6(){}
+void init_ex10(){}
 
 uint16_t LED[12] =
 {
@@ -30,7 +32,8 @@ uint16_t LED[12] =
 
 };
 
-void reset_state()
+
+void clearAllClock()
 {
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4 , GPIO_PIN_SET);
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5 , GPIO_PIN_SET);
@@ -46,18 +49,39 @@ void reset_state()
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_15 , GPIO_PIN_SET);
 }
 
-void led_on(int index)
+void setNumberOnClock(int num)
 {
-	HAL_GPIO_WritePin(GPIOA, LED[index], GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOA, LED[num], GPIO_PIN_RESET);
+}
+
+void clearNumberOnClock(int num)
+{
+	HAL_GPIO_WritePin(GPIOA, LED[num], GPIO_PIN_SET);
 }
 
 
-void ex6_run()
+
+void ex10_run()
 {
-	reset_state();
-	led_on(counter++);
-	if (counter >= 12)
+	if (second >= 60)
 	{
-		counter = 0;
+		second = 0;
+		minute++;
 	}
+	if (minute >= 60)
+	{
+		minute = 0;
+		hour++;
+	}
+	if (hour >= 12)
+	{
+		hour = 0;
+	}
+	clearAllClock();
+	setNumberOnClock(hour);
+	setNumberOnClock(minute/5);
+	setNumberOnClock(second/5);
+	second++;
+
 }
+
