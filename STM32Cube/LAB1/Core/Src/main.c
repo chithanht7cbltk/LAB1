@@ -23,7 +23,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
-#include"ex6.h"
+#include"ex8.h"
 
 /* USER CODE END Includes */
 
@@ -96,7 +96,7 @@ int main(void)
 
   while (1)
   {
-	  ex6_run();
+	  ex8_run();
 
 	  HAL_Delay(1000);
 
